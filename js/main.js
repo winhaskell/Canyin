@@ -179,7 +179,7 @@ function updateCart() {
     // Update cart items display
     const cartHTML = cart.length > 0 
         ? cart.map(item => createCartItemHTML(item)).join('') 
-        : '<p class="text-gray-500 text-center py-4">我的点餐是空的</p>';
+        : '<p class="text-gray-500 text-center py-4">点餐单还是空的，快去选购美味吧~ </p>';
     
     if (cartItems) {
         cartItems.innerHTML = cartHTML;
