@@ -284,17 +284,27 @@ function removeFromCart(itemId) {
 // Setup Cart Functionality
 function setupCartFunctionality() {
     // Cart button - open modal
-    const cartBtn = document.getElementById('cartBtn');
+    
     const cartModal = document.getElementById('cartModal');
     const closeCartModal = document.getElementById('closeCartModal');
     
-    if (cartBtn && cartModal) {
-        cartBtn.addEventListener('click', () => {
-            cartModal.classList.remove('hidden');
-            cartModal.classList.add('flex');
-            updateCart();
+    // 核心：直接用选择器把所有带 open-cart-btn（或 id="cartBtn"）的按钮全部绑定打开弹窗
+    const openCartButtons = document.querySelectorAll('#cartBtn, .open-cart-btn');
+    
+    openCartButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (cartModal) {
+                cartModal.classList.remove('hidden');
+                cartModal.classList.add('flex');
+                updateCart();
+            }
         });
-    }
+    });
+
+
+
+    
     
     if (closeCartModal && cartModal) {
         closeCartModal.addEventListener('click', () => {
@@ -304,6 +314,7 @@ function setupCartFunctionality() {
     }
     
     // Click outside modal to close
+    // 点击弹窗外部阴影关闭
     if (cartModal) {
         cartModal.addEventListener('click', (e) => {
             if (e.target === cartModal) {
@@ -314,6 +325,7 @@ function setupCartFunctionality() {
     }
     
     // Clear cart
+    // 清空购物车按钮
     const clearCartBtn = document.getElementById('clearCart');
     if (clearCartBtn) {
         clearCartBtn.addEventListener('click', () => {
