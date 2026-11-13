@@ -364,9 +364,9 @@ async function handleCheckout() {
         // await saveOrder(orderData);
         
         // Clear cart
-        cart = [];
-        updateCart();
-        saveCartToStorage();
+       // cart = [];
+       // updateCart();
+       // saveCartToStorage();
         
         // Close cart modal
         const cartModal = document.getElementById('cartModal');
