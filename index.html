@@ -406,14 +406,15 @@
 
 
 
-<!-- 就餐方式与人数（左右两列，样式与上方日期/时间完全一致） -->
+<!-- 就餐方式与人数（左右两列，样式与上方完全一致） -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div>
             <label class="block text-sm font-semibold mb-2">就餐方式 *</label>
             <select name="orderType" id="orderTypeSelect" required onchange="toggleOrderTypeFields()" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                <option value="">选择方式</option>
                 <option value="dine-in">堂食</option>
-                <option value="pickup">到店自取/打包</option>
-                <option value="delivery">外卖配送</option>
+                <option value="pickup">到店自取</option>
+                <option value="delivery">外卖</option>
             </select>
         </div>
         <div>
@@ -437,18 +438,7 @@
 
 
                     
-                    <div class="mb-6">
-                        <label class="block text-sm font-semibold mb-2">人数 *</label>
-                        <select name="guests" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
-                            <option value="">选择人数</option>
-                            <option value="1">1人</option>
-                            <option value="2">2人</option>
-                            <option value="3-6">3-6人</option>
-                            <option value="7-10">7-10人</option>
-                            <option value="10+">10人以上</option>
-                        </select>
-                    </div>
-
+                    
 
 
 
