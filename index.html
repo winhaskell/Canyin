@@ -1259,7 +1259,20 @@ document.addEventListener('dragstart', function(event) {
 
 
 
-
+ <!--  -->
+    <script>
+      document.getElementById('closeSuccessModal')?.addEventListener('click', function() {
+        setTimeout(function() {
+          const supportSection = document.getElementById('support');
+          if (supportSection) {
+            supportSection.scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'center' 
+            });
+          }
+        }, 150);
+      });
+    </script>                
 
 
                 
