@@ -228,9 +228,169 @@
                 <h2 class="text-4xl md:text-5xl font-bold text-dark mb-4 font-serif">欢迎点餐</h2>
                 <div class="w-24 h-1 bg-primary mx-auto mb-4"></div>
                 <p class="text-xl text-rose-600">点餐电话：+86 130 1696 7587</p>
+
+
+<!-- 欢迎点餐模块：居中点餐码卡片 + 取餐号规则 -->
+<div class="jbg-qr-section">
+  <!-- 顶部引导标题 -->
+  <div class="jbg-qr-badge">📱 正式点餐下单专用 · 长按识别选菜</div>
+  
+  <!-- 二维码白底卡片（确保任何背景下都能秒级扫码） -->
+  <div class="jbg-qr-card">
+    <img src="kkk.jpg" alt="绝摆炒饭哥官方点餐码" class="jbg-qr-img" />
+  </div>
+  
+  <!-- 底部操作提示 -->
+  <p class="jbg-qr-tip">支持微信 / 支付宝长按识别，下单后后厨即刻现炒</p>
+
+  <!-- 取餐号规则说明 -->
+  <div class="jbg-pickup-rule-box">
+    <span class="jbg-rule-title">取餐号规则：</span>
+    <span class="jbg-rule-item"><strong class="jbg-code">A</strong> = 堂食</span>
+    <span class="jbg-divider">|</span>
+    <span class="jbg-rule-item"><strong class="jbg-code">B</strong> = 到店自取</span>
+    <span class="jbg-divider">|</span>
+    <span class="jbg-rule-item"><strong class="jbg-code">W</strong> = 外卖</span>
+  </div>
+</div>
+
+<style>
+  .jbg-qr-section {
+    width: 100%;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  /* 顶部高亮引导胶囊 */
+  .jbg-qr-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    margin-bottom: 14px;
+    background-color: #FFF0ED;
+    color: #D9381E;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 20px;
+    border: 1px solid #FAD2CC;
+  }
+
+  /* 二维码独立白底卡片 */
+  .jbg-qr-card {
+    background-color: #FFFFFF;
+    padding: 14px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #EEEEEE;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 二维码图片尺寸控制 */
+  .jbg-qr-img {
+    width: 210px;
+    height: 210px;
+    object-fit: contain;
+    display: block;
+    border-radius: 6px;
+  }
+
+  /* 扫码提示小字 */
+  .jbg-qr-tip {
+    margin: 12px 0 0 0;
+    font-size: 13px;
+    color: #666666;
+  }
+
+  /* 取餐号规则框 */
+  .jbg-pickup-rule-box {
+    margin: 16px auto 0 auto;
+    padding: 10px 16px;
+    max-width: 340px;
+    width: 100%;
+    background-color: #FFF8F0;
+    border: 1px solid #F3E2D2;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    line-height: 1.4;
+    box-sizing: border-box;
+  }
+
+  .jbg-rule-title {
+    font-size: 13px;
+    color: #666666;
+  }
+
+  .jbg-rule-item {
+    font-size: 14px;
+    color: #333333;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .jbg-code {
+    font-size: 15px;
+    color: #D9381E;
+    font-weight: 700;
+    margin-right: 1px;
+  }
+
+  .jbg-divider {
+    font-size: 13px;
+    color: #CCCCCC;
+    margin: 0 4px;
+  }
+
+  @media (max-width: 360px) {
+    .jbg-qr-img {
+      width: 185px;
+      height: 185px;
+    }
+    .jbg-pickup-rule-box {
+      padding: 8px 10px;
+    }
+    .jbg-rule-item {
+      font-size: 13px;
+    }
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+
+
+
+
+                
                 <div style="height: 20px;"></div>
                 <p class="text-xl text-gray-600">选择喜欢的美食，我们即刻为您准备</p>
-            </div>
+                </div>
 
             <div class="max-w-6xl mx-auto">
                 <div id="orderGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
