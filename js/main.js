@@ -415,42 +415,86 @@ function showSuccessModal() {
 }
 
 // Setup Reservation Form
+// Setup Reservation Form（已移除滚回顶部，改为直接生成专属预订凭证）
 function setupReservationForm() {
     const form = document.getElementById('reservationForm');
-    
-    if (form) {
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const formData = new FormData(form);
-            const reservationData = {
-                name: formData.get('name'),
-                phone: formData.get('phone'),
-                date: formData.get('date'),
-                time: formData.get('time'),
-                guests: formData.get('guests'),
-                notes: formData.get('notes'),
-                status: 'pending',
-                createdAt: new Date().toISOString()
-            };
-            
-            try {
-                // Save reservation to database (if table exists)
-                // await saveReservation(reservationData);
-                
-                showToast('success', '预订成功！我们会尽快与您联系确认');
-                form.reset();
-                
-                // Scroll to top
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                
-            } catch (error) {
-                console.error('Reservation error:', error);
-                showToast('error', '预订提交失败，请重试或致电我们');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const name = form.querySelector('[name="name"]').value.trim();
+        const phone = form.querySelector('[name="phone"]').value.trim();
+        const date = form.querySelector('[name="date"]').value;
+        const time = form.querySelector('[name="time"]').value;
+        const orderTypeEl = form.querySelector('[name="orderType"]');
+        const orderTypeText = orderTypeEl ? orderTypeEl.options[orderTypeEl.selectedIndex].text : '堂食';
+        const guestsEl = form.querySelector('[name="guests"]');
+        const guestsText = guestsEl ? guestsEl.options[guestsEl.selectedIndex].text : '';
+        const notes = form.querySelector('[name="notes"]').value.trim() || '无';
+
+        const ticketCode = 'JBG-' + Math.floor(100000 + Math.random() * 900000);
+        const summary =
+            '【绝摆炒饭哥 · 专属预订凭证】\n' +
+            '预订编号：' + ticketCode + '\n' +
+            '顾客姓名：' + name + '\n' +
+            '联系电话：' + phone + '\n' +
+            '用餐时间：' + date + ' ' + time + '\n' +
+            '就餐方式：' + orderTypeText + '\n' +
+            '用餐人数：' + guestsText + '\n' +
+            '备注说明：' + notes;
+
+        let card = document.getElementById('jbgAutoTicketCard');
+        if (!card) {
+            card = document.createElement('div');
+            card.id = 'jbgAutoTicketCard';
+            card.style.cssText = 'margin-top:24px; padding:20px; background:#fff7ed; border:2px solid #f97316; border-radius:12px; color:#1f2937;';
+            form.appendChild(card);
+        }
+
+        card.innerHTML =
+            '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; font-weight:bold; font-size:16px; color:#ea580c;">' +
+                '<span>✅ 专属预订凭证已生成</span>' +
+                '<span>' + ticketCode + '</span>' +
+            '</div>' +
+            '<pre style="background:#ffffff; padding:14px; border-radius:8px; border:1px dashed #fdba74; font-size:14px; line-height:1.6; white-space:pre-wrap; font-family:inherit; margin-bottom:14px;">' + summary + '</pre>' +
+            '<div style="display:flex; flex-direction:column; gap:10px;">' +
+                '<button type="button" id="jbgCopyTicketBtn" style="width:100%; background:#16a34a; color:#fff; font-weight:bold; padding:12px; border:none; border-radius:8px; cursor:pointer; font-size:14px;">📋 复制预订信息（发微信）</button>' +
+                '<a href="tel:+8613016967587" style="width:100%; background:#ec4899; color:#fff; font-weight:bold; padding:12px; border-radius:8px; text-decoration:none; text-align:center; font-size:14px; display:block;">📞 一键拨打门店电话</a>' +
+            '</div>';
+
+        document.getElementById('jbgCopyTicketBtn').onclick = function () {
+            const btn = this;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(summary).then(function () {
+                    btn.textContent = '✓ 已复制！请粘贴发送给客服微信';
+                });
+            } else {
+                const ta = document.createElement('textarea');
+                ta.value = summary;
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                btn.textContent = '✓ 已复制！请粘贴发送给客服微信';
             }
-        });
-    }
+        };
+
+        showToast('success', '专属预订凭证已生成！');
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
 }
+
+
+
+
+
+
+
+
+
+
+
 
 // Set Minimum Reservation Date
 function setMinReservationDate() {
