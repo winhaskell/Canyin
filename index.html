@@ -589,11 +589,19 @@
                     <textarea name="notes" id="resNotes" rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50" placeholder="如有特殊忌口或座位需求...；&#10;如需外卖，联系确认时请告知配送地址（街道、小区及门牌号）。"></textarea>
                 </div>
 
-                <button type="submit"
+
+
+
+                
+                <button type="button"
+                    onclick="generateJbgTicket()"
                     class="w-full bg-primary text-white py-4 rounded-lg font-bold text-lg hover:bg-opacity-90 transition transform hover:scale-105 shadow-lg cursor-pointer">
                     <i class="fas fa-calendar-check mr-2"></i>确认预订
                 </button>
 
+             
+
+                
                 <!-- 专属预订凭证卡片（提交后自动显示） -->
                 <div id="reservationTicketBox" class="hidden mt-8 p-6 rounded-xl bg-amber-50 border-2 border-amber-400 text-gray-800 shadow-inner">
                     <div class="flex items-center justify-between border-b border-amber-200 pb-3 mb-4">
@@ -1530,8 +1538,7 @@ document.addEventListener('dragstart', function(event) {
 
 
 
-
-                
+          
 
  <!--  -->
     <script>
@@ -1588,6 +1595,59 @@ document.addEventListener('dragstart', function(event) {
 
 
                 
+
+                
+<script>
+function generateJbgTicket() {
+    var form = document.getElementById('reservationForm');
+    if (!form) return;
+
+    // 1. 触发浏览器自带的必填项校验（如果姓名/电话等没填，会自动弹出提示）
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+    }
+
+    // 2. 读取表单填写的值
+    var name = form.querySelector('[name="name"]').value.trim();
+    var phone = form.querySelector('[name="phone"]').value.trim();
+    var date = form.querySelector('[name="date"]').value;
+    var time = form.querySelector('[name="time"]').value;
+    var orderTypeEl = form.querySelector('[name="orderType"]');
+    var orderTypeText = orderTypeEl.options[orderTypeEl.selectedIndex].text;
+    var guestsEl = form.querySelector('[name="guests"]');
+    var guestsText = guestsEl.options[guestsEl.selectedIndex].text;
+    var notes = form.querySelector('[name="notes"]').value.trim() || '无';
+
+    // 3. 生成 JBG- 开头随机预订号
+    var ticketCode = 'JBG-' + Math.floor(100000 + Math.random() * 900000);
+
+    // 4. 组装预订凭证文本
+    var summary =
+        '【绝摆炒饭哥 · 专属预订凭证】\n' +
+        '预订编号：' + ticketCode + '\n' +
+        '顾客姓名：' + name + '\n' +
+        '联系电话：' + phone + '\n' +
+        '用餐时间：' + date + ' ' + time + '\n' +
+        '就餐方式：' + orderTypeText + '\n' +
+        '用餐人数：' + guestsText + '\n' +
+        '备注说明：' + notes;
+
+    // 5. 显示凭证卡片（直接留在当前位置，不跳转首页）
+    var ticketCard = document.getElementById('bookingTicketCard');
+    var ticketNoEl = document.getElementById('bookingTicketNo');
+    var ticketDetailEl = document.getElementById('bookingTicketDetail');
+
+    if (ticketCard && ticketNoEl && ticketDetailEl) {
+        ticketNoEl.textContent = ticketCode;
+        ticketDetailEl.textContent = summary;
+        ticketCard.classList.remove('hidden');
+        ticketCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+}
+</script>
+
+
 
 
                 
