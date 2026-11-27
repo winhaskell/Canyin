@@ -502,158 +502,216 @@
  <div style="height:80px;"></div>
     
     <!-- Reservation Section -->
-    <section id="reservation" class="py-20 bg-gradient-to-br from-primary to-secondary text-white">
-        <div class="container mx-auto px-6">
-            <div class="max-w-2xl mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-4 font-serif">欢迎预订</h2>
-                    <div class="w-24 h-1 bg-white mx-auto mb-4"></div>
-                    <p class="text-xl text-purple-600">预订电话：+86 130 1696 7587</p>
-                    
-                    <div style="height: 20px;"></div>
-                    <p class="text-xl">✨ 提前预订，享受更好的用餐体验 ✨</p>
-                    <div style="height: 20px;"></div>
-                    
-                    <p class="text-xl">预订说明：</p>
-                    <br>
-                    <p class="text-xl">- 🔎 更多菜单详情，欢迎致电或到店了解！</p>
-                    <p class="text-xl">- ⏰ 建议提前1天预订。</p>
-                    <p class="text-xl">- ☎️ 如有临时改期或人数变动，欢迎随时沟通。</p> 
-                    <p class="text-xl">- ⭐ 请准时到达，保留时间15分钟。</p>
-                    <p class="text-xl">- 🎉 10人以上请提前3天电话预订。</p> 
-                    
 
+<section id="reservation" class="py-20 bg-gradient-to-br from-primary to-secondary text-white">
+    <div class="container mx-auto px-6">
+        <div class="max-w-2xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 font-serif">欢迎预订</h2>
+                <div class="w-24 h-1 bg-white mx-auto mb-4"></div>
+                <p class="text-xl text-purple-600 font-semibold">预订电话：+86 130 1696 7587</p>
+                
+                <div style="height: 20px;"></div>
+                <p class="text-xl">✨ 提前预订，享受更好的用餐体验 ✨</p>
+                <div style="height: 20px;"></div>
+                
+                <p class="text-xl font-bold">预订说明：</p>
+                <div class="mt-3 space-y-2 text-lg md:text-xl">
+                    <p>- 🔎 更多菜单详情，欢迎致电或到店了解！</p>
+                    <p>- ⏰ 建议提前1天预订。</p>
+                    <p>- ☎️ 如有临时改期或人数变动，欢迎随时沟通。</p> 
+                    <p>- ⭐ 请准时到达，保留时间15分钟。</p>
+                    <p>- 🎉 10人以上请提前3天电话预订。</p> 
+                </div>
+            </div>
 
-
-
-
-
-
-
-
-
-
-                    
+            <form id="reservationForm" class="bg-white rounded-lg shadow-2xl p-8 text-gray-800">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">姓名 *</label>
+                        <input type="text" name="name" id="resName" placeholder="例如：姓名" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">电话 *</label>
+                        <input type="tel" name="phone" id="resPhone" placeholder="请输入11位手机号" required pattern="[0-9]{11}" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                    </div>
                 </div>
 
-                <form id="reservationForm" class="bg-white rounded-lg shadow-2xl p-8 text-gray-800">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <label class="block text-sm font-semibold mb-2">姓名 *</label>
-                            <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold mb-2">电话 *</label>
-                            <input type="tel" name="phone" required pattern="[0-9]{11}" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
-                        </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">日期 *</label>
+                        <input type="date" name="date" id="resDate" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
                     </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <label class="block text-sm font-semibold mb-2">日期 *</label>
-                            <input type="date" name="date" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold mb-2">时间 *</label>
-                            <select name="time" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
-                                <option value="">选择时间</option>
-                           
-                                
-                                <option value="16:30">16:30</option>
-                                
-                                <option value="17:00">17:00</option>
-                                <option value="17:30">17:30</option>
-                                <option value="18:00">18:00</option>
-                                
-                                <option value="18:30">18:30</option>
-                                <option value="19:00">19:00</option>
-
-
-                                <option value="20:00">20:00</option>
-                                
-                                <option value="21:00">21:00</option>
-
-                                <option value="22:00">22:00</option>
-                                
-                                <option value="23:00">23:00</option>
-
-                          
-
-                                
-                                
-                            </select>
-                        </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">时间 *</label>
+                        <select name="time" id="resTime" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                            <option value="">选择时间</option>
+                            <option value="16:30">16:30</option>
+                            <option value="17:00">17:00</option>
+                            <option value="17:30">17:30</option>
+                            <option value="18:00">18:00</option>
+                            <option value="18:30">18:30</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                            <option value="22:00">22:00</option>
+                            <option value="23:00">23:00</option>
+                        </select>
                     </div>
+                </div>
 
+                <!-- 就餐方式与人数 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">就餐方式 *</label>
+                        <select name="orderType" id="orderTypeSelect" required onchange="if(typeof toggleOrderTypeFields === 'function') toggleOrderTypeFields();" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                            <option value="">选择方式</option>
+                            <option value="dine-in">堂食</option>
+                            <option value="pickup">到店自取</option>
+                            <option value="delivery">外卖</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">人数 *</label>
+                        <select name="guests" id="resGuests" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+                            <option value="">选择人数</option>
+                            <option value="1">1人</option>
+                            <option value="2">2人</option>
+                            <option value="3-6">3-6人</option>
+                            <option value="7-10">7-10人</option>
+                            <option value="10+">10人以上</option>
+                        </select>
+                    </div>
+                </div>
 
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold mb-2">备注</label>
+                    <textarea name="notes" id="resNotes" rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50" placeholder="如有特殊忌口或座位需求...；&#10;如需外卖，联系确认时请告知配送地址（街道、小区及门牌号）。"></textarea>
+                </div>
 
+                <button type="submit"
+                    class="w-full bg-primary text-white py-4 rounded-lg font-bold text-lg hover:bg-opacity-90 transition transform hover:scale-105 shadow-lg cursor-pointer">
+                    <i class="fas fa-calendar-check mr-2"></i>确认预订
+                </button>
 
+                <!-- 专属预订凭证卡片（提交后自动显示） -->
+                <div id="reservationTicketBox" class="hidden mt-8 p-6 rounded-xl bg-amber-50 border-2 border-amber-400 text-gray-800 shadow-inner">
+                    <div class="flex items-center justify-between border-b border-amber-200 pb-3 mb-4">
+                        <span class="text-lg font-bold text-green-700">✅ 专属预订凭证已生成</span>
+                        <span id="resTicketNo" class="text-sm font-mono font-bold text-amber-700 bg-amber-100 px-3 py-1 rounded-full"></span>
+                    </div>
+                    
+                    <pre id="resTicketSummary" class="bg-white p-4 rounded-lg border border-dashed border-amber-300 text-sm text-gray-700 whitespace-pre-wrap font-sans leading-relaxed mb-4"></pre>
+                    
+                    <p class="text-xs text-gray-500 mb-4">💡 提示：点击下方按钮复制预订详情发送给客服微信，或直接致电门店快速锁定餐位。</p>
 
-
-
-<!-- 就餐方式与人数（左右两列，样式与上方完全一致） -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div>
-            <label class="block text-sm font-semibold mb-2">就餐方式 *</label>
-            <select name="orderType" id="orderTypeSelect" required onchange="toggleOrderTypeFields()" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
-                <option value="">选择方式</option>
-                <option value="dine-in">堂食</option>
-                <option value="pickup">到店自取</option>
-                <option value="delivery">外卖</option>
-            </select>
-        </div>
-        <div>
-            <label class="block text-sm font-semibold mb-2">人数 *</label>
-            <select name="guests" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
-                <option value="">选择人数</option>
-                <option value="1">1人</option>
-                <option value="2">2人</option>
-                <option value="3-6">3-6人</option>
-                <option value="7-10">7-10人</option>
-                <option value="10+">10人以上</option>
-            </select>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <button type="button" id="copyResTicketBtn"
+                            class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg transition text-sm flex items-center justify-center cursor-pointer">
+                            📋 复制预订信息（发微信）
+                        </button>
+                        <a href="tel:+8613016967587"
+                            class="w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-4 rounded-lg transition text-sm flex items-center justify-center text-center">
+                            📞 一键拨打门店电话
+                        </a>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
+</section>
 
+<script>
+(function () {
+    // 1. 默认日期设为今天，且禁止选择过去的日期
+    var dateInput = document.getElementById('resDate');
+    if (dateInput) {
+        var now = new Date();
+        var yyyy = now.getFullYear();
+        var mm = String(now.getMonth() + 1).padStart(2, '0');
+        var dd = String(now.getDate()).padStart(2, '0');
+        var todayStr = yyyy + '-' + mm + '-' + dd;
+        dateInput.setAttribute('min', todayStr);
+        if (!dateInput.value) {
+            dateInput.value = todayStr;
+        }
+    }
 
+    // 2. 表单提交生成专属预订凭证
+    var form = document.getElementById('reservationForm');
+    var ticketBox = document.getElementById('reservationTicketBox');
+    var ticketNoEl = document.getElementById('resTicketNo');
+    var ticketSummaryEl = document.getElementById('resTicketSummary');
+    var copyBtn = document.getElementById('copyResTicketBtn');
 
+    if (form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
 
+            var name = document.getElementById('resName').value.trim();
+            var phone = document.getElementById('resPhone').value.trim();
+            var date = document.getElementById('resDate').value;
+            var time = document.getElementById('resTime').value;
+            var orderTypeEl = document.getElementById('orderTypeSelect');
+            var guestsEl = document.getElementById('resGuests');
+            var notes = document.getElementById('resNotes').value.trim() || '无'; 
 
+            var orderTypeText = orderTypeEl.options[orderTypeEl.selectedIndex].text;
+            var guestsText = guestsEl.options[guestsEl.selectedIndex].text;
+            var randomNo = 'JBG-' + Math.floor(100000 + Math.random() * 900000);
 
+            var summaryText =
+                '【绝摆炒饭哥 · 专属预订凭证】\n' +
+                '预订单号：' + randomNo + '\n' +
+                '顾客姓名：' + name + '\n' +
+                '联系电话：' + phone + '\n' +
+                '就餐方式：' + orderTypeText + '\n' +
+                '到店/用餐时间：' + date + ' ' + time + '\n' +
+                '用餐人数：' + guestsText + '\n' +
+                '备注需求：' + notes;
 
+            ticketNoEl.textContent = randomNo;
+            ticketSummaryEl.textContent = summaryText;
+            ticketBox.classList.remove('hidden');
+            copyBtn.textContent = '📋 复制预订信息（发微信）';
+            copyBtn.classList.remove('bg-emerald-700');
+            copyBtn.classList.add('bg-green-600');
 
-                    
-                    
+            // 平滑滚动到生成的凭证卡片位置
+            ticketBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+    }
 
+    // 3. 一键复制预订信息（兼容手机和电脑端浏览器）
+    if (copyBtn) {
+        copyBtn.addEventListener('click', function () {
+            var textToCopy = ticketSummaryEl.textContent;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(textToCopy).then(function () {
+                    copyBtn.textContent = '✅ 已复制！请打开微信粘贴发送';
+                }).catch(function () {
+                    fallbackCopy(textToCopy);
+                });
+            } else {
+                fallbackCopy(textToCopy);
+            }
+        });
+    }
 
+    function fallbackCopy(text) {
+        var tempInput = document.createElement('textarea');
+        tempInput.value = text;
+        tempInput.style.position = 'fixed';
+        tempInput.style.opacity = '0';
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        copyBtn.textContent = '✅ 已复制！请打开微信粘贴发送';
+    }
+})();
+</script>
 
-
-
-
-
-
-                    
-                    <div class="mb-6">
-                        <label class="block text-sm font-semibold mb-2">备注</label>
-                        <textarea name="notes" rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50" placeholder="如有特殊忌口或座位需求...；
-如需外卖，联系确认时请告知配送地址（街道、小区及门牌号）。"></textarea>
-                    </div>
-
-
-                    
-        <button type="button"
-            onclick="window.location.href='#contact'"
-            class="w-full bg-primary text-white py-4 rounded-lg font-bold text-lg hover:bg-opacity-90 transition transform hover:scale-105">
-            <i class="fas fa-calendar-check mr-2"></i>确认预订
-        </button>
-
-
-
-                    
-                </form>
-            </div>
-        </div>
-    </section>
 
 
 
