@@ -603,17 +603,18 @@
                     
                     <pre id="resTicketSummary" class="bg-white p-4 rounded-lg border border-dashed border-amber-300 text-sm text-gray-700 whitespace-pre-wrap font-sans leading-relaxed mb-4"></pre>
                     
-                    <p class="text-xs text-gray-500 mb-4">💡 提示：点击下方按钮复制预订详情发送给客服微信，或直接致电门店快速锁定餐位。</p>
+                    <p class="text-xs text-gray-500 mb-4">💡 提示：点击下方按钮复制预订详情发送给客服微信，或直接致电门店快速订餐。</p>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <button type="button" id="copyResTicketBtn"
                             class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg transition text-sm flex items-center justify-center cursor-pointer">
                             📋 复制预订信息（发微信）
                         </button>
-                        <a href="tel:+8613016967587"
+                        <a  href="tel:+8613016967587"
+                            onclick="navigator.clipboard?.writeText('13016967587')"
                             style="background-color: #ec4899;"
                             class="w-full bg-gray-800 hover:bg-pink-500 text-white font-bold py-3 px-4 rounded-lg transition text-sm flex items-center justify-center text-center">
-                            📞 一键拨打门店电话
+                            ☎️ 一键拨打门店电话
                         </a>
                     </div>
                 </div>
