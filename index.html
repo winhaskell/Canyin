@@ -1597,55 +1597,7 @@ document.addEventListener('dragstart', function(event) {
                 
 
                 
-<script>
-function generateJbgTicket() {
-    var form = document.getElementById('reservationForm');
-    if (!form) return;
 
-    // 1. 触发浏览器自带的必填项校验（如果姓名/电话等没填，会自动弹出提示）
-    if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-    }
-
-    // 2. 读取表单填写的值
-    var name = form.querySelector('[name="name"]').value.trim();
-    var phone = form.querySelector('[name="phone"]').value.trim();
-    var date = form.querySelector('[name="date"]').value;
-    var time = form.querySelector('[name="time"]').value;
-    var orderTypeEl = form.querySelector('[name="orderType"]');
-    var orderTypeText = orderTypeEl.options[orderTypeEl.selectedIndex].text;
-    var guestsEl = form.querySelector('[name="guests"]');
-    var guestsText = guestsEl.options[guestsEl.selectedIndex].text;
-    var notes = form.querySelector('[name="notes"]').value.trim() || '无';
-
-    // 3. 生成 JBG- 开头随机预订号
-    var ticketCode = 'JBG-' + Math.floor(100000 + Math.random() * 900000);
-
-    // 4. 组装预订凭证文本
-    var summary =
-        '【绝摆炒饭哥 · 专属预订凭证】\n' +
-        '预订编号：' + ticketCode + '\n' +
-        '顾客姓名：' + name + '\n' +
-        '联系电话：' + phone + '\n' +
-        '用餐时间：' + date + ' ' + time + '\n' +
-        '就餐方式：' + orderTypeText + '\n' +
-        '用餐人数：' + guestsText + '\n' +
-        '备注说明：' + notes;
-
-    // 5. 显示凭证卡片（直接留在当前位置，不跳转首页）
-    var ticketCard = document.getElementById('bookingTicketCard');
-    var ticketNoEl = document.getElementById('bookingTicketNo');
-    var ticketDetailEl = document.getElementById('bookingTicketDetail');
-
-    if (ticketCard && ticketNoEl && ticketDetailEl) {
-        ticketNoEl.textContent = ticketCode;
-        ticketDetailEl.textContent = summary;
-        ticketCard.classList.remove('hidden');
-        ticketCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-}
-</script>
 
 
 
