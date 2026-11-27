@@ -18,7 +18,7 @@ function initializeApp() {
     setupMenuFilters();
     
     // Setup reservation form
-    setupReservationForm();
+    // setupReservationForm();
     
     // Setup cart functionality
     setupCartFunctionality();
